@@ -5,11 +5,14 @@ import './styles.scss';
 
 // const App = () => <CardGrid />;
 const App = () => {
-  const [isCardExtended, extendCard] = useState(false);
-  const card = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  let [isExtended, extendCard] = useState(Array(15).fill(false));
+  let card = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
   const toggleCard = e => {
-    extendCard(!isCardExtended);
+    const cards = isExtended.slice();
+    const val = e.target.getAttribute('value');
+    cards[val] = !cards[val];
+    extendCard(cards);
   };
 
   return (
@@ -17,7 +20,11 @@ const App = () => {
       {card.map(c => {
         return (
           <div
-            style={isCardExtended ? { width: '200px', height: '200px' } : null}
+            style={
+              isExtended[c]
+                ? { gridRowEnd: 'span 2', gridColumnEnd: 'span 2' }
+                : null
+            }
             key={c}
             onClick={toggleCard}
             value={c}
