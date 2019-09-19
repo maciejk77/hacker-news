@@ -31,4 +31,5 @@
 
 ## Screenshots
 
+Playing with grid system
 ![Screenshot](src/assets/screenshot-1.png)

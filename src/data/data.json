@@ -1,0 +1,46 @@
+{
+  "stories": [
+    {
+      "id": 1,
+      "title": "Lorem ipsum 11",
+      "score": 123,
+      "author": "James Bond",
+      "text": "I have no idea, what is it for but let's carry on as normal..."
+    },
+    {
+      "id": 2,
+      "title": "Lorem ipsum 22",
+      "score": 12,
+      "author": "John Smith",
+      "text": "Well nothing to add here, all that is a nonsense"
+    },
+    {
+      "id": 3,
+      "title": "Lorem ipsum 33",
+      "score": 3,
+      "author": "Al Baldwin",
+      "text": "Blah blah blah, waste of time really"
+    },
+    {
+      "id": 4,
+      "title": "Lorem ipsum 44",
+      "score": 33,
+      "author": "Joe Kowalsky",
+      "text": "That is just plain stupid, I do not wish to continue"
+    },
+    {
+      "id": 5,
+      "title": "Lorem ipsum 55",
+      "score": 59,
+      "author": "Martin Jones",
+      "text": "OK then, what can I add to this conversation"
+    },
+    {
+      "id": 6,
+      "title": "Lorem ipsum 66",
+      "score": 13,
+      "author": "Alan Star",
+      "text": "Can I just keep quiet, I have nothing to contribute"
+    }
+  ]
+}
