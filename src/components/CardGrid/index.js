@@ -15,9 +15,25 @@ const CardGrid = () => {
   };
 
   // refactor to styled component ExpandableCard?
+
+  // const ExpandableCard = styled.div`
+  //   ${props =>
+  //     props.expanded &&
+  //     css`
+  //     grid-row-end: 'span 2';
+  //     grid-column-end: 'span 2';
+  //     background-color: '#ecbf04;
+  //     color: 'red';
+  //   `}
+  // `;
+
   const isExtendedLogic = id =>
     isExtendedMap[id]
-      ? { gridRowEnd: 'span 2', gridColumnEnd: 'span 2' }
+      ? {
+          gridRowEnd: 'span 2',
+          gridColumnEnd: 'span 2',
+          backgroundColor: '#ecbf04'
+        }
       : null;
 
   return (
