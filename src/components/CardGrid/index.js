@@ -3,32 +3,19 @@ import { stories } from '../../data/data.json';
 import './styles.scss';
 
 const CardGrid = () => {
-  let [isExtendedMap, extendCard] = useState(
+  let [isExpandedMap, expandCard] = useState(
     Array(stories.map(story => story.id).length).fill(false)
   );
 
   const toggleCard = e => {
-    const cards = isExtendedMap.slice();
+    const cards = isExpandedMap.slice();
     const val = e.target.getAttribute('value');
     cards[val] = !cards[val];
-    extendCard(cards);
+    expandCard(cards);
   };
 
-  // refactor to styled component ExpandableCard?
-
-  // const ExpandableCard = styled.div`
-  //   ${props =>
-  //     props.expanded &&
-  //     css`
-  //     grid-row-end: 'span 2';
-  //     grid-column-end: 'span 2';
-  //     background-color: '#ecbf04;
-  //     color: 'red';
-  //   `}
-  // `;
-
-  const isExtendedLogic = id =>
-    isExtendedMap[id]
+  const isExpandedLogic = id =>
+    isExpandedMap[id]
       ? {
           gridRowEnd: 'span 2',
           gridColumnEnd: 'span 2',
@@ -44,7 +31,7 @@ const CardGrid = () => {
             className="card-grid__card"
             key={id}
             onClick={toggleCard}
-            style={isExtendedLogic(id)}
+            style={isExpandedLogic(id)}
             value={id}
           >
             <div>Title {title}</div>
@@ -57,3 +44,16 @@ const CardGrid = () => {
 };
 
 export default CardGrid;
+
+// refactor to styled component ExpandableCard?
+
+// const ExpandableCard = styled.div`
+//   ${props =>
+//     props.expanded &&
+//     css`
+//     grid-row-end: 'span 2';
+//     grid-column-end: 'span 2';
+//     background-color: '#ecbf04;
+//     color: 'red';
+//   `}
+// `;
