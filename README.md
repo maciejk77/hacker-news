@@ -22,7 +22,7 @@
 - React
 - Hooks (useState, useEffect)
 - Fetch, async/await, Promise.all for collecting data
-- ES6 e.g. .map, .filter, arrow functions, template strings
+- ES6 e.g. map, filter, arrow functions, template strings
 - CSS grid, Sass styling
 
 ## Comments (to be completed)
@@ -34,4 +34,5 @@
 
 ## Screenshots
 
+Work in progress...
 ![Screenshot](src/assets/screenshot-1.png)
