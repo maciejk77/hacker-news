@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
-import { stories } from '../../data/data.json';
+import React, { useState, useEffect } from 'react';
 import './styles.scss';
+const baseUrl = 'https://hacker-news.firebaseio.com/v0';
 
 const CardGrid = () => {
-  let [isExpandedMap, expandCard] = useState(
-    Array(stories.map(story => story.id).length).fill(false)
+  const [stories, collectStories] = useState([]);
+  const [isExpandedMap, expandCard] = useState(
+    Array(stories.length).fill(false)
   );
+
+  useEffect(() => {
+    const fetchStories = async () => {
+      const response = await fetch(`${baseUrl}/topstories.json`);
+      const storyIds = await response.json();
+
+      return await Promise.all(
+        storyIds.map(async id => {
+          const response = await fetch(`${baseUrl}/item/${id}.json`);
+          const storyData = await response.json();
+          collectStories(collection => [...collection, storyData]);
+        })
+      );
+    };
+    fetchStories();
+  }, []);
 
   const toggleCard = e => {
     const cards = isExpandedMap.slice();
@@ -14,6 +31,7 @@ const CardGrid = () => {
     expandCard(cards);
   };
 
+  // refactor to styled component ExpandableCard?
   const isExpandedLogic = id =>
     isExpandedMap[id]
       ? {
@@ -23,9 +41,12 @@ const CardGrid = () => {
         }
       : null;
 
+  // Top 500 'stories' include 1 job which (optionally here) may be filtered out to 'storiesOnly'
+  const storiesOnly = stories.filter(st => st.type !== 'job');
+
   return (
     <div className="card-grid">
-      {stories.map(({ id, title, text }) => {
+      {storiesOnly.map(({ id, score, title, by }) => {
         return (
           <div
             className="card-grid__card"
@@ -34,8 +55,11 @@ const CardGrid = () => {
             style={isExpandedLogic(id)}
             value={id}
           >
-            <div>Title {title}</div>
-            <div>Content {text}</div>
+            <div className="card-wrapper">
+              <div className="card-wrapper__item score">[^{score}]</div>
+              <div className="card-wrapper__item title">{title}</div>
+              <div className="card-wrapper__item by">By {by}</div>
+            </div>
           </div>
         );
       })}
@@ -44,16 +68,3 @@ const CardGrid = () => {
 };
 
 export default CardGrid;
-
-// refactor to styled component ExpandableCard?
-
-// const ExpandableCard = styled.div`
-//   ${props =>
-//     props.expanded &&
-//     css`
-//     grid-row-end: 'span 2';
-//     grid-column-end: 'span 2';
-//     background-color: '#ecbf04;
-//     color: 'red';
-//   `}
-// `;
