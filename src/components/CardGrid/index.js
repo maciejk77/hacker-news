@@ -56,9 +56,9 @@ const CardGrid = () => {
             value={id}
           >
             <div className="card-wrapper">
-              <div className="card-wrapper__item score">[^{score}]</div>
-              <div className="card-wrapper__item title">{title}</div>
-              <div className="card-wrapper__item by">By {by}</div>
+              <div className="card-wrapper__item">[^{score}]</div>
+              <div className="card-wrapper__item">{title}</div>
+              <div className="card-wrapper__item">By {by}</div>
             </div>
           </div>
         );
