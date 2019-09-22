@@ -1,0 +1,13 @@
+@import '../../styles/base_styles.scss';
+
+.card {
+  background: $card-col1;
+  padding: 1rem;
+  font-family: $fonts;
+
+  &__item {
+    line-height: 1.35rem;
+    margin-bottom: 0.25rem;
+    padding: 0.25rem;
+  }
+}

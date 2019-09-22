@@ -7,19 +7,4 @@
   grid-auto-rows: minmax(5rem, auto);
   grid-template-columns: repeat($columns, 1fr);
   padding: 5rem;
-
-  &__card {
-    background: $card-col1;
-    padding: 1rem;
-    font-family: $fonts;
-
-    .card-wrapper {
-      &__item {
-        line-height: 1.35rem;
-
-        margin-bottom: 0.25rem;
-        padding: 0.25rem;
-      }
-    }
-  }
 }

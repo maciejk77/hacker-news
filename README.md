@@ -20,16 +20,18 @@
 ## Technology used
 
 - React
-- tbc
-- tbc
-- tbc
+- Hooks (useState, useEffect)
+- Fetch, async/await, Promise.all for collecting data
+- ES6 e.g. .map, .filter, arrow functions, template strings
+- CSS grid, Sass styling
 
 ## Comments (to be completed)
 
-- tbc
-- tbc
+- refactor to styled-component
+- fetching comments for posts
+- extended fuctionality e.g. sorting by score?
+- add more styles
 
 ## Screenshots
 
-Playing with grid system
 ![Screenshot](src/assets/screenshot-1.png)
