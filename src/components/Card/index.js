@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import './styles.scss';
 
-const Card = ({ story }) => {
+const Card = ({ id, score, title, by }) => {
   const [isExpanded, expandCard] = useState(false);
-  const { id, score, title, by } = story;
-
   const toggleCard = () => expandCard(!isExpanded);
 
   return (

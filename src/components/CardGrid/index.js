@@ -29,7 +29,7 @@ const CardGrid = () => {
   return (
     <div className="card-grid">
       {storiesOnly.map(story => {
-        return <Card key={story.id} story={story} />;
+        return <Card key={story.id} {...story} />;
       })}
     </div>
   );
