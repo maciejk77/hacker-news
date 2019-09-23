@@ -44,4 +44,4 @@
 ## Screenshots
 
 Work in progress...
-![Screenshot](src/assets/screenshot-1.png)
+![Screenshot](src/assets/screenshot-01.png)
