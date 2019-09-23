@@ -1,0 +1,11 @@
+// TODO
+// clean up needed, move font-size/family, colours etc to Sass base_styles
+// import base_styles
+
+.comments {
+  background-color: white;
+  padding: 0.2rem;
+  font-style: italic;
+  font-size: 0.75rem;
+  display: flex;
+}

@@ -1,19 +1,64 @@
 @import '../../styles/base_styles.scss';
 
-.card {
-  background: $card-col1;
-  font-family: $fonts;
-  padding: 1rem;
+// TODO
+// clean up needed, move font-size/family, colours etc to Sass base_styles
 
-  &__item {
-    line-height: 1.35rem;
-    margin-bottom: 0.25rem;
+.card {
+  background: lightgray;
+  border: 2px solid brown;
+  color: black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-size: 0.9rem;
+
+  &__header {
+    background-color: brown;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 0.25rem;
+  }
+
+  &__body {
+    padding: 0.5rem 0.5rem;
+    line-height: 1rem;
+    font-weight: bold;
   }
 }
 
 .card-expanded {
-  background-color: #ecbf04;
+  background-color: lightsalmon;
   grid-row-end: span 2;
   grid-column-end: span 2;
+
+  .card__body {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  // TODO
+  // clean up needed, do I need this non BEM classes?
+
+  .by {
+    color: brown;
+    font-size: 0.8rem;
+  }
+}
+
+// .score {
+// }
+
+.by {
+  color: darkgray;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.6rem;
+}
+
+.title {
+  color: black;
+}
+
+.comments {
+  padding: 0.75rem;
 }

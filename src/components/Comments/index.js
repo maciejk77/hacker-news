@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import parser from 'html-react-parser';
+// import Loader from 'react-loader-spinner';
+import { FaComments } from 'react-icons/fa';
+import './styles.scss';
+
 const baseUrl = 'https://hacker-news.firebaseio.com/v0';
 
-const Comments = ({ commentIds }) => {
+const Comments = ({ commentIds, isExpanded }) => {
   // const [comments, collectComments] = useState([]);
   const [firstComment, setComment] = useState();
 
@@ -20,9 +25,20 @@ const Comments = ({ commentIds }) => {
   }, []);
 
   return (
-    <div>
-      <div>-----</div>
-      <div>{firstComment ? firstComment.substring(0, 45) : ''}</div>
+    <div className="comments">
+      {firstComment ? (
+        <div>
+          <FaComments />
+          <blockquote>
+            {!isExpanded
+              ? parser(`${firstComment.substring(0, 65)}...`)
+              : parser(firstComment)}
+          </blockquote>
+        </div>
+      ) : (
+        <div>Loading...</div>
+        // <Loader type="ThreeDots" color="#somecolor" height={80} width={80} />
+      )}
     </div>
   );
 };

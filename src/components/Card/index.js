@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import Comments from '../Comments';
 import cn from 'classnames';
+import {
+  FaHandPointUp,
+  FaChevronCircleUp,
+  FaChevronCircleDown
+} from 'react-icons/fa';
 import './styles.scss';
 
 const Card = ({ id, score, title, by, kids }) => {
@@ -13,11 +18,21 @@ const Card = ({ id, score, title, by, kids }) => {
       key={id}
       onClick={toggleCard}
     >
-      <div className="card__item">[^{score}]</div>
-      <div className="card__item">{title}</div>
-      <div className="card__item">By {by}</div>
-      <div className="card__item">
-        <Comments commentIds={kids} />
+      <div className="card__header">
+        <div>
+          <FaHandPointUp />
+          &nbsp;{score}
+        </div>
+        <div>
+          {isExpanded ? <FaChevronCircleUp /> : <FaChevronCircleDown />}
+        </div>
+      </div>
+      <div className="card__body">
+        <div className="card__item title">{title}</div>
+        <div className="card__item by">By {by}</div>
+        <div className="card__item comments">
+          <Comments commentIds={kids} {...isExpanded} />
+        </div>
       </div>
     </div>
   );
