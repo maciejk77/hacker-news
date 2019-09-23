@@ -2,12 +2,18 @@
 
 .card {
   background: $card-col1;
-  padding: 1rem;
   font-family: $fonts;
+  padding: 1rem;
 
   &__item {
     line-height: 1.35rem;
     margin-bottom: 0.25rem;
     padding: 0.25rem;
   }
+}
+
+.card-expanded {
+  background-color: #ecbf04;
+  grid-row-end: span 2;
+  grid-column-end: span 2;
 }

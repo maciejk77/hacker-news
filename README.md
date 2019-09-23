@@ -23,7 +23,8 @@
 - Hooks (useState, useEffect)
 - Fetch, async/await, Promise.all for collecting data
 - ES6 e.g. map, filter, arrow functions, template strings
-- CSS grid, Sass styling
+- CSS grid, BEM, Sass, classnames
+- Parcel.js for bundling
 
 ## Comments (to be completed)
 
