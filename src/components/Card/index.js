@@ -11,7 +11,6 @@ const Card = ({ id, score, title, by }) => {
       className={cn('card', { 'card-expanded': isExpanded })}
       key={id}
       onClick={toggleCard}
-      value={id}
     >
       <div className="card__item">[^{score}]</div>
       <div className="card__item">{title}</div>
