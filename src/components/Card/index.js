@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import Comments from '../Comments';
 import cn from 'classnames';
 import './styles.scss';
 
-const Card = ({ id, score, title, by }) => {
+const Card = ({ id, score, title, by, kids }) => {
   const [isExpanded, expandCard] = useState(false);
   const toggleCard = () => expandCard(!isExpanded);
 
@@ -15,7 +16,9 @@ const Card = ({ id, score, title, by }) => {
       <div className="card__item">[^{score}]</div>
       <div className="card__item">{title}</div>
       <div className="card__item">By {by}</div>
-      <div className="card__item">Comment goes here</div>
+      <div className="card__item">
+        <Comments commentIds={kids} />
+      </div>
     </div>
   );
 };
