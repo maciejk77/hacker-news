@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Pagination from '../Pagination';
 import Card from '../Card';
 import './styles.scss';
+
 const baseUrl = 'https://hacker-news.firebaseio.com/v0';
 
 const CardGrid = () => {
   const [stories, collectStories] = useState([]);
+  // pagination, pages, stories per page
   const [currentPage, setCurrentPage] = useState(1);
   const [storiesPerPage] = useState(25);
-
-  // console.log(stories);
 
   const fetchStories = async () => {
     const response = await fetch(`${baseUrl}/topstories.json`);

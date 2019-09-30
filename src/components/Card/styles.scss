@@ -1,21 +1,17 @@
 @import '../../styles/base_styles.scss';
 
-// TODO
-// clean up needed, move font-size/family, colours etc to Sass base_styles
-
 .card {
+  background: $bg-col2;
+  color: $bg-col1;
   display: flex;
+  font-family: $fonts3;
+  font-size: 0.9rem;
   flex-direction: column;
   justify-content: space-between;
-  background: lightgray;
-  color: black;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-  font-size: 0.9rem;
 
   &__header {
-    background-color: black;
-    color: white;
+    background-color: $bg-col1;
+    color: $txt-col1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -23,47 +19,24 @@
   }
 
   &__body {
-    padding: 0.5rem 0.5rem;
-    line-height: 1rem;
     font-weight: bold;
+    line-height: 1rem;
+    padding: 0.5rem 0.5rem;
   }
 }
 
-.card__item {
+.card-item {
   margin: 0.25rem;
 }
 
-.card-expanded {
-  background-color: lightsalmon;
-  grid-row-end: span 2;
-  grid-column-end: span 2;
-  line-height: 1.25rem;
-
-  .card__body {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-  }
-
-  // TODO
-  // clean up needed, do I need this non BEM classes?
-
-  .by {
-    color: brown;
-    font-size: 0.8rem;
-  }
-}
-
-// .score {
-// }
-
 .by {
   color: darkgray;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: $fonts2;
   font-size: 0.6rem;
 }
 
 .title {
-  color: black;
+  color: $bg-col1;
 }
 
 .comments {
@@ -71,12 +44,27 @@
 }
 
 .button-group {
+  color: $txt-col1;
+  background-color: $card-col2;
   display: flex;
   justify-content: space-around;
-  background-color: brown;
-  color: white;
   padding: 0.25rem;
+}
 
-  &__button {
+// expanded card styles
+.card-expanded {
+  background-color: $bg-col3;
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+  line-height: 1.25rem;
+
+  .card__body {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  .by {
+    color: $card-col2;
+    font-size: 0.8rem;
   }
 }

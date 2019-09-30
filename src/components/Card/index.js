@@ -17,7 +17,6 @@ const Card = ({ id, score, title, by, kids }) => {
   };
 
   const prevComment = () => {
-    console.log(commentIndex);
     if (!kids.length) {
       return null;
     }
@@ -48,10 +47,10 @@ const Card = ({ id, score, title, by, kids }) => {
           </div>
         </div>
         <div className="card__body">
-          <div className="card__item title">{title}</div>
-          <div className="card__item by">By {by}</div>
+          <div className="card-item title">{title}</div>
+          <div className="card-item by">By {by}</div>
         </div>
-        <div className="card__item comments">
+        <div className="card-item comments">
           {kids ? (
             <Comments
               commentIds={kids}
@@ -65,12 +64,8 @@ const Card = ({ id, score, title, by, kids }) => {
       </div>
       {kids && (
         <div className="button-group">
-          <div className="button-group__button" onClick={prevComment}>
-            &lt;&lt; prev
-          </div>
-          <div className="button-group__button" onClick={nextComment}>
-            next &gt;&gt;
-          </div>
+          <div onClick={prevComment}>&lt;&lt; prev</div>
+          <div onClick={nextComment}>next &gt;&gt;</div>
         </div>
       )}
     </div>
