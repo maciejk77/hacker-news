@@ -15,17 +15,15 @@ const Comments = ({ commentIds, isExpanded, commentIndex }) => {
       ? `${firstComment.substring(0, 65)}...`
       : firstComment;
 
-  const fetchComment = async () => {
-    const response = await fetch(
-      `${baseUrl}/item/${commentIds[commentIndex]}.json`
-    );
+  const fetchComment = async item => {
+    const response = await fetch(`${baseUrl}/item/${item}.json`);
     const comment = await response.json();
     setComment(comment.text);
     setAuthor(comment.by);
   };
 
   useEffect(() => {
-    fetchComment();
+    fetchComment(commentIds[commentIndex]);
   }, [commentIndex]);
 
   return (

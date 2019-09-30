@@ -30,11 +30,10 @@
 ## Comments (to be completed)
 
 - optimise: different loader for when data being fetched?
-- optimise: lazyloading, optimisation, skeleton screen, review fetching data
+- optimise: lazyloading, optimisation, skeleton screen, review fetching data?
 - extra: extended fuctionality e.g. sorting by score?
-- extra: data packaged by GraphQL, served by Appolo, send only relevant pieces of data
+- extra: data packaged by GraphQL, served by Appolo, send only relevant pieces of data?
 
 ## Screenshots
 
-Work in progress...
 ![Screenshot](src/assets/screenshot-2.png)
