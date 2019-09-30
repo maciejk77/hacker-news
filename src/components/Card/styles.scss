@@ -4,20 +4,22 @@
 // clean up needed, move font-size/family, colours etc to Sass base_styles
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: lightgray;
-  border: 2px solid brown;
   color: black;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-size: 0.9rem;
 
   &__header {
-    background-color: brown;
+    background-color: black;
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0.25rem;
+    padding: 0.5rem;
   }
 
   &__body {
@@ -27,10 +29,15 @@
   }
 }
 
+.card__item {
+  margin: 0.25rem;
+}
+
 .card-expanded {
   background-color: lightsalmon;
   grid-row-end: span 2;
   grid-column-end: span 2;
+  line-height: 1.25rem;
 
   .card__body {
     font-size: 1.2rem;
@@ -60,5 +67,16 @@
 }
 
 .comments {
-  padding: 0.75rem;
+  padding: 0.5rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  background-color: brown;
+  color: white;
+  padding: 0.25rem;
+
+  &__button {
+  }
 }

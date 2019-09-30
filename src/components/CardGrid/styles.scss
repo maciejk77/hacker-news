@@ -6,5 +6,5 @@
   grid-auto-columns: minmax(5rem, auto);
   grid-auto-rows: minmax(5rem, auto);
   grid-template-columns: repeat($columns, 1fr);
-  padding: 5rem;
+  padding: 2rem 5rem 1rem;
 }

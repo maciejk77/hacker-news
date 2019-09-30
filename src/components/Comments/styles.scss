@@ -8,4 +8,26 @@
   font-style: italic;
   font-size: 0.75rem;
   display: flex;
+
+  // &__buttons {
+  //   display: flex;
+  //   justify-content: center;
+  // }
+
+  .comment {
+    &__icon {
+      font-size: 1.25rem;
+    }
+
+    &__text {
+      line-height: 1.25rem;
+    }
+  }
+}
+
+.foo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.25rem;
 }
