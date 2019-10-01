@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import parser from 'html-react-parser';
 //import Loader from 'react-loader-spinner';
 import { FaComments } from 'react-icons/fa';
@@ -45,6 +46,12 @@ const Comments = ({ commentIds, isExpanded, commentIndex }) => {
       )}
     </div>
   );
+};
+
+Comments.propTypes = {
+  commentIds: PropTypes.array,
+  isExpanded: PropTypes.bool,
+  commentIndex: PropTypes.number
 };
 
 export default Comments;

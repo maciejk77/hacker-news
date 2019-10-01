@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Pagination = ({ storiesPerPage, totalStories, paginate }) => {
@@ -21,6 +22,12 @@ const Pagination = ({ storiesPerPage, totalStories, paginate }) => {
       </ul>
     </nav>
   );
+};
+
+Pagination.propTypes = {
+  storiesPerPage: PropTypes.number,
+  totalStories: PropTypes.number,
+  paginate: PropTypes.func
 };
 
 export default Pagination;

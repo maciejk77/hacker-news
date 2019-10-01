@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Comments from '../Comments';
 import cn from 'classnames';
 import {
@@ -70,6 +71,14 @@ const Card = ({ id, score, title, by, kids }) => {
       )}
     </div>
   );
+};
+
+Card.propTypes = {
+  id: PropTypes.number,
+  score: PropTypes.number,
+  title: PropTypes.string,
+  by: PropTypes.string,
+  kids: PropTypes.array
 };
 
 export default Card;

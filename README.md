@@ -25,6 +25,7 @@
 - ES6 e.g. map, filter, arrow functions, template strings
 - CSS, CSS grid, BEM, Sass, Flexbox, classnames
 - npm e.g. react-icons, react-loader-spinner
+- Type checking with prop-types
 - Parcel.js for bundling
 
 ## Comments (to be completed)
