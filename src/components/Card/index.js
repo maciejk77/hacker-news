@@ -5,7 +5,9 @@ import cn from 'classnames';
 import {
   FaHandPointUp,
   FaChevronCircleUp,
-  FaChevronCircleDown
+  FaChevronCircleDown,
+  FaChevronLeft,
+  FaChevronRight
 } from 'react-icons/fa';
 import './styles.scss';
 
@@ -65,8 +67,14 @@ const Card = ({ id, score, title, by, kids }) => {
       </div>
       {kids && (
         <div className="button-group">
-          <div onClick={prevComment}>&lt;&lt; prev</div>
-          <div onClick={nextComment}>next &gt;&gt;</div>
+          <div onClick={prevComment} className="button-group__item">
+            <FaChevronLeft />
+            <span>&nbsp;prev</span>
+          </div>
+          <div onClick={nextComment} className="button-group__item">
+            <span>next&nbsp;</span>
+            <FaChevronRight />
+          </div>
         </div>
       )}
     </div>

@@ -48,7 +48,12 @@
   background-color: $card-col2;
   display: flex;
   justify-content: space-around;
-  padding: 0.25rem;
+  padding: 0.5rem;
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
 }
 
 // expanded card styles
