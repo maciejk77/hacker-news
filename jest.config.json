@@ -1,0 +1,5 @@
+{
+  "roots": ["<rootDir>/src/"],
+  "moduleFileExtensions": ["js", "jsx", "json", "node"],
+  "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"]
+}
