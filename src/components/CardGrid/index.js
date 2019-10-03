@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import regeneratorRuntime from 'regenerator-runtime';
 import Pagination from '../Pagination';
 import Card from '../Card';
 import './styles.scss';
