@@ -10,23 +10,24 @@ const CardGrid = () => {
   // pagination, pages, stories per page
   const [currentPage, setCurrentPage] = useState(1);
   const [storiesPerPage] = useState(25);
+  const [mount, setMount] = useState(true);
 
-  const fetchStories = async () => {
-    const response = await fetch(`${baseUrl}/topstories.json`);
-    const storyIds = await response.json();
+  useEffect(() => {
+    const fetchStories = async () => {
+      const response = await fetch(`${baseUrl}/topstories.json`);
+      const storyIds = await response.json();
 
-    return await Promise.all(
       storyIds.map(async id => {
         const response = await fetch(`${baseUrl}/item/${id}.json`);
         const storyData = await response.json();
         collectStories(collection => [...collection, storyData]);
-      })
-    );
-  };
-
-  useEffect(() => {
-    fetchStories();
-  }, []);
+      });
+      setMount(false);
+    };
+    if (mount) {
+      fetchStories();
+    }
+  }, [mount]);
 
   // Top 500 'stories' include 1 job which (optionally here) may be filtered out to 'storiesOnly'
   const storiesOnly = stories.filter(st => st.type !== 'job');
