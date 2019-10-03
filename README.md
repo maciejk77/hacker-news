@@ -26,6 +26,8 @@
 - CSS, CSS grid, BEM, Sass, Flexbox, classnames
 - npm e.g. react-icons, react-loader-spinner
 - Type checking with prop-types
+- Testing set up with Jest (after lots of Stackoverflowing ;)
+- First tests applied, snapshots
 - Parcel.js for bundling
 
 ## Comments (to be completed)

@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Card from '../Card';
+import Pagination from '../Pagination';
 
-describe('<Card />', () => {
+describe('<Pagination />', () => {
   it('should render correctly', () => {
-    const wrapper = shallow(<Card />);
+    const wrapper = shallow(<Pagination />);
     expect(wrapper).toMatchSnapshot();
   });
 });
