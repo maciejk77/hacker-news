@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchStory } from '../../services';
 import PropTypes from 'prop-types';
 import Comments from '../Comments';
 import cn from 'classnames';
@@ -11,52 +12,57 @@ import {
 } from 'react-icons/fa';
 import './styles.scss';
 
-const Card = ({ id, score, title, by, kids }) => {
+const Card = ({ storyId }) => {
+  const [story, setStory] = useState({});
   const [isExpanded, expandCard] = useState(false);
   const [commentIndex, setCommentIndex] = useState(0);
+
+  useEffect(() => {
+    fetchStory(storyId).then(story => story && setStory(story));
+  }, []);
 
   const toggleCard = e => {
     expandCard(!isExpanded);
   };
 
   const prevComment = () => {
-    if (!kids.length) {
+    if (!story.kids.length) {
       return null;
     }
     commentIndex === 0
-      ? setCommentIndex(kids.length - 1)
+      ? setCommentIndex(story.kids.length - 1)
       : setCommentIndex(commentIndex - 1);
   };
 
   const nextComment = () => {
-    if (!kids.length) {
+    if (!story.kids.length) {
       return null;
     }
-    commentIndex === kids.length - 1
+    commentIndex === story.kids.length - 1
       ? setCommentIndex(0)
       : setCommentIndex(commentIndex + 1);
   };
 
   return (
-    <div className={cn('card', { 'card-expanded': isExpanded })} key={id}>
+    <div className={cn('card', { 'card-expanded': isExpanded })} key={story.id}>
       <div onClick={toggleCard}>
         <div className="card__header">
           <div>
             <FaHandPointUp />
-            &nbsp;{score}
+            &nbsp;{story.score}
           </div>
           <div>
             {isExpanded ? <FaChevronCircleUp /> : <FaChevronCircleDown />}
           </div>
         </div>
         <div className="card__body">
-          <div className="card-item title">{title}</div>
-          <div className="card-item by">By {by}</div>
+          <div className="card-item title">{story.title}</div>
+          <div className="card-item by">By {story.by}</div>
         </div>
         <div className="card-item comments">
-          {kids ? (
+          {story.kids ? (
             <Comments
-              commentIds={kids}
+              commentIds={story.kids}
               isExpanded={isExpanded}
               commentIndex={commentIndex}
             />
@@ -65,7 +71,7 @@ const Card = ({ id, score, title, by, kids }) => {
           )}
         </div>
       </div>
-      {kids && (
+      {story.kids && (
         <div className="button-group">
           <div onClick={prevComment} className="button-group__item">
             <FaChevronLeft />

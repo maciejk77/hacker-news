@@ -1,58 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import regeneratorRuntime from 'regenerator-runtime';
-import Pagination from '../Pagination';
+import { fetchStoryIds } from '../../services';
+//import Pagination from '../Pagination';
 import Card from '../Card';
 import './styles.scss';
 
-const baseUrl = 'https://hacker-news.firebaseio.com/v0';
-
 const CardGrid = () => {
-  const [stories, collectStories] = useState([]);
-  // pagination, pages, stories per page
-  const [currentPage, setCurrentPage] = useState(1);
-  const [storiesPerPage] = useState(25);
-  const [mount, setMount] = useState(true);
+  const [storyIds, setStoryIds] = useState([]);
+  // pagination, pages, storyIds per page
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [storiesPerPage] = useState(25);
 
   useEffect(() => {
-    const fetchStories = async () => {
-      const response = await fetch(`${baseUrl}/topstories.json`);
-      const storyIds = await response.json();
+    fetchStoryIds().then(ids => ids && setStoryIds(ids));
+  }, []);
 
-      storyIds.map(async id => {
-        const response = await fetch(`${baseUrl}/item/${id}.json`);
-        const storyData = await response.json();
-        collectStories(collection => [...collection, storyData]);
-      });
-      setMount(false);
-    };
-    if (mount) {
-      fetchStories();
-    }
-  }, [mount]);
+  // Top 500 'storyIds' include 1 job which (optionally here) may be filtered out to 'storiesOnly'
+  //const storiesOnly = storyIds.filter(st => st.type !== 'job');
 
-  // Top 500 'stories' include 1 job which (optionally here) may be filtered out to 'storiesOnly'
-  const storiesOnly = stories.filter(st => st.type !== 'job');
-
-  // Get current stories
-  const indexOfLastStory = currentPage * storiesPerPage;
-  const indexOfFirstStory = indexOfLastStory - storiesPerPage;
-  const currentStories = storiesOnly.slice(indexOfFirstStory, indexOfLastStory);
+  // Get current storyIds
+  // const indexOfLastStory = currentPage * storiesPerPage;
+  // const indexOfFirstStory = indexOfLastStory - storiesPerPage;
+  // const currentStories = storiesOnly.slice(indexOfFirstStory, indexOfLastStory);
 
   // Change page
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  // const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <div>
       <div className="card-grid">
-        {currentStories.map(story => {
-          return <Card key={story.id} {...story} />;
+        {storyIds.map(storyId => {
+          return <Card key={storyId} storyId={storyId} />;
         })}
       </div>
-      <Pagination
+      {/* <Pagination
         storiesPerPage={storiesPerPage}
         totalStories={storiesOnly.length}
         paginate={paginate}
-      />
+      /> */}
     </div>
   );
 };
