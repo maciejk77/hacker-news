@@ -14,7 +14,7 @@ const CardGrid = () => {
     fetchStoryIds().then(ids => ids && setStoryIds(ids));
   }, []);
 
-  // ========== ALL COMMENTED BELOW WHEN ENABLED WILL PROVIDE PAGINATION FEATURE ================
+  // ========== ALL COMMENTED WHEN ENABLED WILL PROVIDE PAGINATION FEATURE ================
   // Top 500 'storyIds' include 1 job which (optionally here) may be filtered out to 'storiesOnly'
   //const storiesOnly = storyIds.filter(st => st.type !== 'job');
 
