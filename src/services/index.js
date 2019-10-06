@@ -18,3 +18,11 @@ export const fetchStoryIds = async () => {
 
   return ids;
 };
+
+export const fetchComment = async item => {
+  const comment = await axios
+    .get(`${storyUrl}/${item}.json`)
+    .then(({ data }) => data);
+
+  return comment;
+};

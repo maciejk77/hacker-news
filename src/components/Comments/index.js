@@ -1,35 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { fetchComment } from '../../services';
 import PropTypes from 'prop-types';
 import parser from 'html-react-parser';
 //import Loader from 'react-loader-spinner';
 import { FaComments } from 'react-icons/fa';
 import './styles.scss';
 
-const baseUrl = 'https://hacker-news.firebaseio.com/v0';
-
 const Comments = ({ commentIds, isExpanded, commentIndex }) => {
-  const [firstComment, setComment] = useState();
+  const [comment, setComment] = useState();
   const [author, setAuthor] = useState();
 
   const commentToDisplay =
-    !isExpanded && firstComment
-      ? `${firstComment.substring(0, 65)}...`
-      : firstComment;
-
-  const fetchComment = async item => {
-    const response = await fetch(`${baseUrl}/item/${item}.json`);
-    const comment = await response.json();
-    setComment(comment.text);
-    setAuthor(comment.by);
-  };
+    !isExpanded && comment ? `${comment.substring(0, 65)}...` : comment;
 
   useEffect(() => {
-    fetchComment(commentIds[commentIndex]);
+    fetchComment(commentIds[commentIndex]).then(comment => {
+      setComment(comment.text);
+      setAuthor(comment.by);
+    });
   }, [commentIndex]);
 
   return (
     <div className="comments">
-      {firstComment ? (
+      {comment ? (
         <div className="comment">
           <div className="foo">
             <FaComments className="comment__icon" />
