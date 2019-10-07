@@ -24,7 +24,7 @@ const Comments = ({ commentIds, isExpanded, commentIndex }) => {
     <div className="comments">
       {comment ? (
         <div className="comment">
-          <div className="foo">
+          <div className="comment-wrapper">
             <FaComments className="comment__icon" />
             <span>&nbsp; {author}</span>
           </div>
