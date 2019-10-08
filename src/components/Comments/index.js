@@ -14,9 +14,9 @@ const Comments = ({ commentIds, isExpanded, commentIndex }) => {
     !isExpanded && comment ? `${comment.substring(0, 65)}...` : comment;
 
   useEffect(() => {
-    fetchComment(commentIds[commentIndex]).then(comment => {
-      setComment(comment.text);
-      setAuthor(comment.by);
+    fetchComment(commentIds[commentIndex]).then(({ text, by }) => {
+      setComment(text);
+      setAuthor(by);
     });
   }, [commentIndex]);
 

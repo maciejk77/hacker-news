@@ -20,7 +20,7 @@
 ## Technology used
 
 - React
-- Hooks (useState, useEffect)
+- Hooks (useState, useEffect) and custom useInfiniteScroll
 - Fetch, async/await, Promise.all for collecting data
 - Above refactored to axios with calls extracted to seperate services
 - ES6 e.g. map, filter, arrow functions, template strings
